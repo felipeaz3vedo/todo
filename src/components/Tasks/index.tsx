@@ -1,12 +1,15 @@
+import clipboard from '../../assets/clipboard.svg';
 import { ITask } from '../../App';
 import { Task } from '../Task';
 import styles from './tasks.module.css';
 
 interface Props {
   tasks: ITask[];
+  onDelete: (taskId: string) => void;
+  onComplete: (taskId: string) => void;
 }
 
-export function Tasks({ tasks }: Props) {
+export function Tasks({ tasks, onDelete, onComplete }: Props) {
   const taskQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
 
@@ -28,8 +31,23 @@ export function Tasks({ tasks }: Props) {
 
       <div className={styles.list}>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} />
+          <Task
+            key={task.id}
+            task={task}
+            onDelete={onDelete}
+            onComplete={onComplete}
+          />
         ))}
+
+        {tasks.length <= 0 && (
+          <section className={styles.empty}>
+            <img src={clipboard} alt="prancheta" />
+            <div>
+              <p>Você ainda não tem tarefas cadastradas</p>
+              <span>Crie tarefas e organize seus itens a fazer</span>
+            </div>
+          </section>
+        )}
       </div>
     </section>
   );

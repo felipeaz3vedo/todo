@@ -46,3 +46,7 @@
   font-weight: 700;
   font-size: 0.875rem;
 }
+
+.newTaskForm button:hover {
+  background-color: var(--blue);
+}

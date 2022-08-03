@@ -5,7 +5,7 @@
   padding: 1rem;
   border-radius: 0.5rem;
   display: flex;
-  align-items: center ;
+  align-items: center;
   justify-content: space-between;
   gap: 0.7rem;
 }
@@ -14,14 +14,19 @@
   font-size: 0.875rem;
   line-height: 1.18rem;
   color: var(--gray-100);
-  margin-right: auto ;
+  margin-right: auto;
+}
+
+p.textCompleted {
+  color: var(--gray-300);
+  text-decoration: line-through;
 }
 
 .checkContainer {
   min-width: 1.125rem;
   height: 1.125rem;
   background: none;
-  border: none
+  border: none;
 }
 
 .checkContainer div {
@@ -31,8 +36,25 @@
   border-radius: 50%;
 }
 
+.checkContainer div:hover {
+  border: 2px solid var(--blue-dark);
+}
+
+.checkContainer svg {
+  width: 100%;
+  height: 100%;
+  color: var(--purple-dark);
+}
+.checkContainer svg:hover {
+  color: var(--purple);
+}
+
 .deleteButton {
   background: none;
   border: none;
   color: var(--gray-300);
+}
+
+.deleteButton:hover {
+  color: var(--danger);
 }
